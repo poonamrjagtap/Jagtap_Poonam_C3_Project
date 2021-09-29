@@ -39,8 +39,6 @@ public class  Restaurant {
     public List<Item> getMenu() {
         return Collections
                 .unmodifiableList(menu);
-
-        //DELETE ABOVE RETURN STATEMENT AND WRITE CODE HERE
     }
 
     private Item findItemByName(String itemName){
@@ -78,7 +76,13 @@ public class  Restaurant {
     }
 
    
-
+ public int getTotalOrderAmount (List<String> selectedItems){
+        int totalAmount = 0;
+        for(String selectedItem : selectedItems) {
+            totalAmount += findItemByName(selectedItem).getPrice();
+        }
+        return  totalAmount;
+    }
 
 
 }
